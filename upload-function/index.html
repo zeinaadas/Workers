@@ -1,0 +1,28 @@
+
+
+
+
+<script>
+
+//http.status=404; => The requested URL was not found on this server.
+//http.status=200; => success.
+
+function UrlExists(url)
+{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
+}
+
+
+if(UrlExists('HOME/index.php'))location.href='HOME/index.php';
+else if(UrlExists('../HOME/index.php'))location.href='../HOME/index.php';
+else if(UrlExists('../../HOME/index.php'))location.href='../../HOME/index.php';
+else if(UrlExists('../../../HOME/index.php'))location.href='../../../HOME/index.php';
+else if(UrlExists('../../../../HOME/index.php'))location.href='../../../../HOME/index.php';
+else if(UrlExists('../../../../../HOME/index.php'))location.href='../../../../../HOME/index.php';
+else if(UrlExists('../../../../../../HOME/index.php'))location.href='../../../../../../HOME/index.php';
+
+
+</script>
